@@ -1,0 +1,15 @@
+
+    <main id="form-container">
+        <form id="create-project-form" class="project-form" action="/projects/create" method="POST">
+            <label for="project-name">Project Name:</label>
+            <input type="text" name="name" id="project-name" required>
+            <br>
+            <label for="project-author">Author:</label>
+            <input type="text" name="author" id="project-author" required>
+            <br>
+            <label for="project-description">Description:</label>
+            <textarea  id="project-description" name="description" required></textarea>
+            <button type="submit" class="submit-button">Create Project</button>
+        </form>
+    </main>
+<script src="/javascripts/issuePage.js"></script>

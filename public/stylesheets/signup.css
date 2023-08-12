@@ -1,0 +1,19 @@
+form{
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        margin-top: 50px;
+}
+
+form>input{
+    width: 300px;
+    padding: 10px 15px;
+    display: block;
+    margin-bottom: 10%;
+}
+
+#submitbtn{
+    padding: 8px 20px;
+    cursor: pointer;
+}
