@@ -1,9 +1,58 @@
+
+<link rel="stylesheet" href="/stylesheets/createProject.css">
+
+
+                
+    <%if(locals.user){%>
+        <div class="create-project-icon">
+            <i class="ri-add-line"></i>
+        </div>
+
+        <div id="new-project">
+            <div id="close-project">
+                <i class="ri-close-line"></i>
+            </div>
+            <form autocomplete="off" action="/projects/create" method="POST">
+                <div class="mb-3">
+                    <label for="project-name" class="form-label">Project Name</label>
+                    <input type="text" class="form-control" name="name" id="project-name" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="project-Author" class="form-label">Author</label>
+                    <input type="text" name="author" class="form-control" id="project-Author" required>
+                </div>
+                <div class="form-floating">
+                    <textarea style="resize: none;"   class="form-control" name="description" placeholder="Leave a comment here" id="project-Description" required></textarea>
+                    <label for="project-Description">Description</label>
+                </div>
+                <button type="submit" class="btn btn-dark mt-3">Submit</button>
+            </form>
+        </div>
+    <%}%>
+
         <ul class="project-list">
-            <% foundProject.forEach(function(project){%>
-                <li class="project-item">
-                    <h2><%= project.name %></h2>
-                    <p><%=  project.description %></p>
-                    <p>Author: <%=  project.author %></p>
-                </li>
-            <%})%>
+            <% if(foundProject.length > 0 && locals.user){ %>
+                <% foundProject.forEach(function(project){%>
+                    <li class="project-item">
+                        <a href="/projects/project/<%= project._id %>">
+                            <h2>
+                                <%= project.name %>
+                            </h2>
+                        </a>
+                        <p>
+                            <%= project.description %>
+                        </p>
+                        <p>Author: <%= project.author %>
+                        </p>
+                        <input type="hidden" value="<%= project.id %>">
+                    </li>
+                <%})%>
+            <%}else if(!locals.user){%>
+                <h1 class="not-loggedin">Nothing To show Sign in <a href="/users/sign-in">here</a></h1>
+            <%}else{%>
+                <h1 class="not-loggedin">Create Project</h1>  
+            <%}%>
         </ul>
+        
+
+    <script src="/javascripts/newProject.js"></script>

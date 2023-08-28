@@ -1,20 +1,31 @@
 
     <main id="issue-form">
         <small id="close-form" >X</small>
-        <form id="create-issue-form" class="issue-form">
+        <form id="create-issue-form" class="issue-form" action="/issues/create" method="POST">
             <label for="issue-title">Issue Title:</label>
-            <input type="text" id="issue-title" required>
+            <input type="text" id="issue-title" name="title">
 
             <label for="issue-description">Issue Description:</label>
-            <textarea id="issue-description" rows="4" required></textarea>
+            <textarea id="issue-description" name="description" rows="4" required></textarea>
 
             <label for="issue-labels">Labels:</label>
-            <input type="text" id="issue-labels">
+            <input type="text" id="issue-labels" name="label">
 
             <label for="issue-author">Author:</label>
-            <input type="text" id="issue-author" required>
+            <input type="text" id="issue-author" name="author" readonly value="<%= user.name %>" required>
 
             <button type="submit" class="submit-button">Submit Issue</button>
         </form>
     </main>
     <button id="create-issue-button">Create Issue</button>
+
+    <ul class="issue-list">
+        <%foundIssue.forEach(function(issue){%>
+            <li class="issue-item">
+                <h2><%= issue.title %></h2>
+                <p><%= issue.description %></p>
+                <p><%= issue.label %></p>
+                <p><%= issue.Author %></p>
+            </li>
+        <%})%>
+    </ul>

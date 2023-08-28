@@ -1,17 +1,57 @@
 
 /* Basic styling, you can expand upon this */
-body {
+html,body {
+    height: 100%;
+    width: 100%;
+    /* overflow-y: hidden; */
     font-family: Arial, sans-serif;
 }
 
 header {
-    background-color: #333;
     color: white;
     padding: 10px 0;
     text-align: center;
+    background-color: #333;
 }
 
-.create-button {
+.not-loggedin{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+.create-project-icon{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: 50% 20% / 10% 40%;
+    position: fixed;
+    top: 80%;
+    right: 7%;
+    background-color: #333;
+}
+
+.create-project-icon:hover{
+    cursor: pointer;
+    background-color: #393939;
+}
+
+.create-project-icon>i{
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)  ;
+    color: #fff;
+    font-size: 25px;
+}
+
+
+
+
+
+/* .create-button {
     padding: 8px 10px;
     border-radius: 5px;
     border: none;
@@ -19,7 +59,7 @@ header {
     color: #000;
     font-size: 15px;
     cursor: pointer;
-}
+} */
 
 .project-list {
     list-style: none;
@@ -27,6 +67,18 @@ header {
 }
 
 .project-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f9;
+}
+
+.issue-list {
+    list-style: none;
+    padding: 0;
+}
+
+.issue-item {
     border: 1px solid #ddd;
     padding: 10px;
     margin: 10px;
@@ -55,7 +107,7 @@ header {
     justify-content: space-around;
     width: 100%;
 }
-
+/* 
 #form-container {
     position: absolute;
     padding: 20px;
@@ -110,7 +162,7 @@ header {
 .submit-button{
     margin-top: 20px;
     padding: 10px 15px;
-}
+} */
 
 /* index page css  */
 
@@ -122,15 +174,20 @@ header {
     justify-content: space-between;
 }
 
-a{
-    text-decoration: none;
-}
-
 
 li {
-    list-style: none; }
+    list-style: none; 
+}
 
-
+#headerlink{
+        text-decoration: none;
+        color: #dadada;
+        font-size: 17px;
+    }
+    
+    a{
+        text-decoration: none;
+    }
 
 #ul{
     display: flex;

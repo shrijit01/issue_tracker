@@ -33,7 +33,9 @@ app.use(sassMiddleware({
 }));
 
 /* USING COOKIE PARSER TO READ DATA */
-app.use(express.urlencoded());
+app.use(express.urlencoded({
+  extended:false
+}));
 
 /* SETTING UP THE COOKIE PARSER */
 app.use(cookieParser());

@@ -4,7 +4,7 @@ const Project = require('../models/project');
 module.exports.home = async function(req,res){
     let foundProject = await Project.find({})
     return res.render("index",{
-        title:"Issue Tracker || Home",
+        title:"Issue Tracker",
         foundProject:foundProject
     });
 }

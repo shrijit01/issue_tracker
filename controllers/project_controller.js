@@ -2,10 +2,17 @@ const Project = require('../models/project');
 
 
 
-module.exports.createProjectPage = function(req,res){
-    return res.render('createProject',{
-        title:"create Project"
-    });
+module.exports.show = async function(req,res){
+    // if(req.isAuthenticated()){
+        let foundedProject = await Project.findById(req.params.id)
+        // .populate('Project');
+        console.log(foundedProject);
+        // console.log(req.params.id);
+        return res.render('showProject',{
+            title:"showProject",
+            project:foundedProject
+        });
+    // }    
 }
 
 

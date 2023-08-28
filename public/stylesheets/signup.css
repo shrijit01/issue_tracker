@@ -1,19 +1,20 @@
-form{
+#signup-container{
         position: absolute;
-        top: 30%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        margin-top: 50px;
 }
 
-form>input{
+#signup>input{
     width: 300px;
     padding: 10px 15px;
     display: block;
     margin-bottom: 10%;
 }
 
-#submitbtn{
+#signup-btn{
+    margin-bottom: 10px;
+    border: none;
     padding: 8px 20px;
     cursor: pointer;
 }

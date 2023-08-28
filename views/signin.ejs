@@ -1,7 +1,10 @@
+<link rel="stylesheet" href="/stylesheets/signin.css">
 
-        <form action="/users/create-session" method="POST">
-            <input type="email" name="email" placeholder="Email">
-            <input type="password" name="password" placeholder="password">
-            <button id="submitbtn">Submit</button>
-        </form>
-    
+        <div id="signin-container">
+            <form id="signin" action="/users/create-session" method="POST">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="password" required>
+                <button id="signin-btn">Submit</button>
+            </form>
+            <a href="/users/sign-up">Create Account</a>
+        </div>

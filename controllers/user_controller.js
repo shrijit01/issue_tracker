@@ -35,8 +35,6 @@ module.exports.createUser = async function(req,res){
         let user = await User.findOne({
             email:req.body.email
         })
-        
-
             if(!user){
                     let createdUser =  await User.create(req.body)
                     console.log('createdUser',createdUser);
