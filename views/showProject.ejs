@@ -6,12 +6,9 @@
 
     <ul class="project-list">
             <li class="project-item">
-                <!-- <small><%= project.id %></small> -->
-                <!-- <a href="/projects/project/<%= project._id %>"> -->
                     <h2>
-                        Name:-<%= project.name %>
+                        Name:- <%= project.name %>
                     </h2>
-                <!-- </a> -->
                 <p>
                     Description :- <%= project.description %>
                 </p>
@@ -24,20 +21,14 @@
 
     <!-- showing all issue in project  -->
     <ul class="issue-list">
-        <li class="issue-item">
-            <!-- <small><%= project.id %></small> -->
-            <!-- <a href="/projects/project/<%= project._id %>"> -->
-                <!-- <h2>
-                    Name:-<%= project.name %>
-                </h2> -->
-            <!-- </a> -->
-            <!-- <p>
-                Description :- <%= project.description %>
-            </p>
-            <p>
-                Author:- <%= project.author %>
-            </p> -->
-        </li>
+        <h1>Total Issues <%= issues.length %></h1>
+            <% issues.forEach(function(issue){%>
+                <li style="background-color: beige;" class="issue-item">
+                    <h2>Title:- <%= issue.title %></h2>
+                    <p>Description:- <%= issue.description %></p>
+                    <p>Label:- <%= issue.label %></p>
+                </li>
+            <%})%>
         
     </ul>  
 

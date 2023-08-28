@@ -30,10 +30,22 @@ module.exports.create = async function(req,res){
         )
 
         if(createdIssue){
-            console.log(createdIssue);
+            const projectToUpdate = await Project.findById(req.body.project);
+            // console.log(createdIssue);
+            if (!projectToUpdate) {
+                console.error('Project not found');
+                return res.status(404).json({ message: 'Project not found' });
+            }
+            
+            // Add the created issue to the project's issue array
+            projectToUpdate.issues.push(createdIssue._id); // Assuming you're using the issue's _id
+            // Save the updated project
+            await projectToUpdate.save();
+            console.log('Issue created:', createdIssue);
         }
         return res.redirect('back');
     }catch(err){
         console.log(err,'Error in issue creation');
+        return res.status(500).json({ message: 'Issue creation failed' });
     }
 }

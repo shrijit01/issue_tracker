@@ -3,32 +3,33 @@ const Issue = require('../models/issue');
 
 
 
-// module.exports.issues = async function(req,res){
+module.exports.show = async function (req, res) {
+    if (req.isAuthenticated()) {
+        try{
+            let foundedProject = await Project.findById(req.params.id)
+                .populate('issues')
+                .exec();
 
-//     if(req.isAuthenticated()){
-//         let foundIssue = await Issue.find();
+            if (!foundedProject) {
+                return res.status(404).json({ message: 'Project not found' });
+            }
 
-//         return res.render('issuePage',{
-//             title:"issue Page",
-//             foundIssue:foundIssue   
-//         });
-//     }
-//     return res.redirect('/users/sign-in');
-// }
+            //Fetching the issue related to the one project
+            const relatedProjects = await Project.find({ relatedProjects: foundedProject._id });
+            const projectIds = [foundedProject._id, ...relatedProjects.map(project => project._id)];
 
+            const allIssues = await Issue.find({ project: { $in: projectIds } });
 
-module.exports.show = async function(req,res){
-    if(req.isAuthenticated()){
-        let foundedProject = await Project.findById(req.params.id);
-
-        let foundedIssue =  foundedProject.issues;
-        console.log(foundedIssue);
-        
-        return res.render('showProject',{
-            title:"showProject",
-            project:foundedProject
-        });
-    }    
+            return res.render('showProject', {
+                title: "showProject",
+                project: foundedProject,
+                issues:allIssues,
+            });
+        } catch (err) {
+            console.error(err, 'Error in showing project');
+            return res.status(500).json({ message: 'Error in showing project' });
+        }
+    }
 }
 
 

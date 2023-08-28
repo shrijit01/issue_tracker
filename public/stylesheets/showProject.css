@@ -78,7 +78,7 @@ header {
 #close-issue{
     z-index: 99;
     position: absolute;
-    top: 28%;
+    top: 22%;
     left: 63%;
     transform: translate(-50%,-50%);
     border-radius: 50px;

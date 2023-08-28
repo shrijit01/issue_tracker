@@ -1,5 +1,5 @@
 var newProject = document.querySelector('#new-project');
-var createProjectIcon = document.querySelector('#create-project-icon');
+var createProjectIcon = document.querySelector('.create-project-icon');
 var closeProjectForm = document.querySelector('#close-project');
 
 

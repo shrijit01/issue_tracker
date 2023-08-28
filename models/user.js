@@ -13,7 +13,19 @@ const userSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true
-    }
+    },
+    issues:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Issue'
+        }
+    ],
+    projects:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Project'
+        }
+    ]
 },{
     timestamps:true
 })

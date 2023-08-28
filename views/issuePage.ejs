@@ -1,14 +1,15 @@
 
     
-    <button id="create-issue-button">Create Issue</button>
+    <!-- <button id="create-issue-button">Create Issue</button> -->
 
     <ul class="issue-list">
         <%foundIssue.forEach(function(issue){%>
             <li class="issue-item">
-                <h2><%= issue.title %></h2>
-                <p><%= issue.description %></p>
-                <p><%= issue.label %></p>
-                <p><%= issue.Author %></p>
+                <h2>Title:- <%= issue.title %></h2>
+                <p>Description:- <%= issue.description %></p>
+                <p>Label:- <%= issue.label %></p>
+                <p>Author:- <%= issue.Author %></p>
+                <p>Project :- <%= issue.project %></p>
             </li>
         <%})%>
     </ul>
