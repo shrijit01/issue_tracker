@@ -47,20 +47,6 @@ header {
     font-size: 25px;
 }
 
-
-
-
-
-/* .create-button {
-    padding: 8px 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #dadada;
-    color: #000;
-    font-size: 15px;
-    cursor: pointer;
-} */
-
 .project-list {
     list-style: none;
     padding: 0;
@@ -89,81 +75,12 @@ header {
     margin: 10px 0;
 }
 
-.issue-list {
-    list-style: none;
-    padding: 0;
-}
-
-.issue-item {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px;
-    background-color: #f9f9f9;
-}
-
 #ref-links {
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
 }
-/* 
-#form-container {
-    position: absolute;
-    padding: 20px;
-    top: 65%;
-    left: 50%;
-    height: 50%;
-    transform: translate(-50%,-60%);
-    width: 30%;
-    background-color: #dadada;
-}
-
-#form-container form>input{
-    padding: 8px 15px;
-    width: 90%;
-    border-radius: 5px;
-    border: none;
-}
-
-
-#create-project-form{
-    text-align: center;
-}
-
-
-#project-name{
-    margin-bottom: 15px;
-}
-
-#project-name{
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-bottom: 15px;
-}
-
-
-#project-description{
-    margin-left: 10px;
-    margin-bottom: 15px;
-    resize: none;
-    padding: 8px 15px;
-    width: 90%;
-    border-radius: 5px;
-    border: none;
-}
-
-#project-author{
-    margin-left: 10px;
-    margin-bottom: 15px;
-}
-
-
-.submit-button{
-    margin-top: 20px;
-    padding: 10px 15px;
-} */
-
 /* index page css  */
 
 #signin-signout{

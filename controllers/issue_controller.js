@@ -3,7 +3,7 @@ const Issue = require('../models/issue');
 
 
 
-module.exports.issues =async function(req,res){
+module.exports.issues = async function(req,res){
 
     if(req.isAuthenticated()){
         let foundIssue = await Issue.find();
@@ -16,21 +16,23 @@ module.exports.issues =async function(req,res){
     return res.redirect('/users/sign-in');
 }
 
-module.exports.create =async function(req,res){
+module.exports.create = async function(req,res){
     try{
         let createdIssue = await Issue.create(
             {
                 title:req.body.title,
                 description:req.body.description,
                 label:req.body.label,
-                author:req.body.author
+                author:req.body.author,
+                project:req.body.project,
+                user:req.body.user
             }
         )
 
         if(createdIssue){
             console.log(createdIssue);
         }
-        return res.redirect('/issues/issue-page');
+        return res.redirect('back');
     }catch(err){
         console.log(err,'Error in issue creation');
     }

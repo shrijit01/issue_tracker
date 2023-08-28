@@ -1,3 +1,8 @@
+    
+<link rel="stylesheet" href="/stylesheets/showProject.css">
+    <div class="create-issue-icon">
+        <i class="ri-add-line"></i>
+    </div>
 
     <ul class="project-list">
             <li class="project-item">
@@ -14,7 +19,51 @@
                     Author:- <%= project.author %>
                 </p>
             </li>
-            <div class="create-issue-icon">
-                <i class="ri-add-line"></i>
-            </div>
+            
     </ul>
+
+    <!-- showing all issue in project  -->
+    <ul class="issue-list">
+        <li class="issue-item">
+            <!-- <small><%= project.id %></small> -->
+            <!-- <a href="/projects/project/<%= project._id %>"> -->
+                <!-- <h2>
+                    Name:-<%= project.name %>
+                </h2> -->
+            <!-- </a> -->
+            <!-- <p>
+                Description :- <%= project.description %>
+            </p>
+            <p>
+                Author:- <%= project.author %>
+            </p> -->
+        </li>
+        
+    </ul>  
+
+    <main id="issueForm-container">
+        <div id="close-issue">
+            <i class="ri-close-line"></i>
+        </div>
+        <form id="create-issue-form" class="issue-form" action="/issues/create" method="POST">
+            <label for="issue-title">Issue Title:</label>
+            <input type="text" id="issue-title" name="title">
+
+            <label for="issue-description">Issue Description:</label>
+            <textarea id="issue-description" name="description" rows="4" required></textarea>
+
+            <label for="issue-labels">Labels:</label>
+            <input type="text" id="issue-labels" name="label">
+
+            <label for="issue-author">Author:</label>
+            <input type="text" id="issue-author" name="author" readonly value="<%= user.name %>" required>
+
+            <input type="hidden" name="project" value="<%= project.id %>">
+            <input type="hidden" name="user" value="<%= user.id %>">
+
+            <button type="submit" class="submit-button">Submit Issue</button>
+        </form>
+    </main>
+
+
+    <script src="/javascripts/newIssue.js"></script>

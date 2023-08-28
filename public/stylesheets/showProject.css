@@ -1,5 +1,112 @@
-.project-list{
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#issueForm-container{
+    display: none;
+    height: 50%;
+    background-color: red;
+    width: 30%;
+}
+
+.issue-form {
+    /* display: none; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+
+.issue-form label,
+.issue-form input,
+.issue-form textarea {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.submit-button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #555;
+}
+
+.create-issue-icon{
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: 50% 20% / 10% 40%;
+    position: fixed;
+    top: 80%;
+    right: 7%;
+    background-color: #333;
+}
+
+.create-issue-icon:hover{
+    cursor: pointer;
+    background-color: #393939;
+}
+
+.create-issue-icon>i{
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)  ;
+    color: #fff;
+    font-size: 25px;
+}
+
+
+#close-issue{
+    z-index: 99;
+    position: absolute;
+    top: 28%;
+    left: 63%;
+    transform: translate(-50%,-50%);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#close-issue>i{
+    color: #fff;
+}
+
+
+/* show issue css  */
+
+.issue-list {
+    list-style: none;
+    padding: 0;
+}
+
+.issue-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f9;
 }
