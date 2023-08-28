@@ -1,5 +1,6 @@
 const Project = require('../models/project');
 const Issue = require('../models/issue');
+const User = require('../models/user');
 
 
 
@@ -30,6 +31,17 @@ module.exports.create = async function(req,res){
         )
 
         if(createdIssue){
+
+            const userToUpdate = await User.findById(req.body.user);
+
+            if(!userToUpdate){
+                console.error('User not found');
+                return res.status(404).json({ message: 'User not found' });
+            }
+
+            userToUpdate.issues.push(createdIssue._id);
+            await userToUpdate.save();
+            
             const projectToUpdate = await Project.findById(req.body.project);
             // console.log(createdIssue);
             if (!projectToUpdate) {

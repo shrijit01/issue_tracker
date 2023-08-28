@@ -1,5 +1,6 @@
 const Project = require('../models/project');
 const Issue = require('../models/issue');
+const User = require('../models/user');
 
 
 
@@ -43,6 +44,10 @@ module.exports.create = async function(req,res){
         })
 
         if(createdProject){
+            await User.findByIdAndUpdate(
+                req.user._id,
+                { $push: { projects: createdProject._id } }, // Add the project ID to the array
+            );
             return res.redirect('/');
         }
     }catch(e){
