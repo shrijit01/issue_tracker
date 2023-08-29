@@ -7,12 +7,22 @@ const User = require('../models/user');
 module.exports.issues = async function(req,res){
 
     if(req.isAuthenticated()){
-        let foundIssue = await Issue.find();
+        try{
+            let foundIssue = await Issue.find()
+            .populate('user')    // Populate the 'user' field
+            .populate('project') // Populate the 'project' field
+            .exec();
 
-        return res.render('issuePage',{
-            title:"issue Page",
-            foundIssue:foundIssue   
-        });
+            // console.log(foundIssue);
+            return res.render('issuePage',{
+                title:"Issue Page",
+                foundIssue:foundIssue   
+            });
+
+        }catch (err) {
+            console.error(err, 'Error in fetching issues');
+            return res.status(500).json({ message: 'Error in fetching issues' });
+        }
     }
     return res.redirect('/users/sign-in');
 }

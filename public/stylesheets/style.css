@@ -96,7 +96,7 @@ li {
     list-style: none; 
 }
 
-#headerlink{
+.headerlink{
         text-decoration: none;
         color: #dadada;
         font-size: 17px;

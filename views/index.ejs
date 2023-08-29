@@ -17,7 +17,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="project-Author" class="form-label">Author</label>
-                    <input type="text" name="author" class="form-control" id="project-Author" required>
+                    <input type="text" name="author" value="<%= locals.user.name %>" class="form-control" id="project-Author" readonly required>
                 </div>
                 <div class="form-floating">
                     <textarea style="resize: none;"   class="form-control" name="description" placeholder="Leave a comment here" id="project-Description" required></textarea>
@@ -31,19 +31,21 @@
         <ul class="project-list">
             <% if(foundProject.length > 0 && locals.user){ %>
                 <% foundProject.forEach(function(project){%>
-                    <li class="project-item">
-                        <a href="/projects/project/<%= project._id %>">
-                            <h2>
-                                <%= project.name %>
-                            </h2>
-                        </a>
-                        <p>
-                            <%= project.description %>
-                        </p>
-                        <p>Author: <%= project.author %>
-                        </p>
-                        <input type="hidden" value="<%= project.id %>">
-                    </li>
+                    <% if (project.user.toString() === locals.user._id.toString()) { %>
+                        <li class="project-item">
+                            <a href="/projects/project/<%= project._id %>">
+                                <h2>
+                                    <%= project.name %>
+                                </h2>
+                            </a>
+                            <p>
+                                <%= project.description %>
+                            </p>
+                            <p>Author: <%= project.author %>
+                            </p>
+                            <input type="hidden" value="<%= project.id %>">
+                        </li>
+                    <%}%>
                 <%})%>
             <%}else if(!locals.user){%>
                 <h1 class="not-loggedin">Nothing To show Sign in <a href="/users/sign-in">here</a></h1>

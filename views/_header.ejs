@@ -3,18 +3,21 @@
     <ul id="ul">
         <%if(locals.user){%>
             <li>
-                <a id="headerlink"  href="/users/profile"><%= user.name %></a>
+                <a class="headerlink" href="/issues/issue-page">Issue page</a>
             </li>
             <li>
-                <a id="headerlink" href="/users/sign-out">Sign Out</a>
+                <a class="headerlink"  href="/users/profile"><%= user.name %></a>
+            </li>
+            <li>
+                <a class="headerlink" href="/users/sign-out">Sign Out</a>
             </li>
             
         <%}else{%>
             <li>
-                <a id="headerlink" href="/users/sign-in">Sign In</a>
+                <a class="headerlink" href="/users/sign-in">Sign In</a>
             </li>
             <li>
-                <a id="headerlink" href="/users/sign-up">Sign up</a>
+                <a class="headerlink" href="/users/sign-up">Sign up</a>
             </li>
         <%}%>
     </ul>
