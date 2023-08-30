@@ -30,7 +30,7 @@ module.exports.show = async function (req, res) {
             return res.status(500).json({ message: 'Error in showing project' });
         }
     }else{
-        return res.status(500).json({ message: 'Error in showing project' });
+        return res.redirect("/users/sign-in")
     }
 }
 

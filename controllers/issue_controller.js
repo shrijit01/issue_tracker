@@ -8,6 +8,7 @@ module.exports.issues = async function(req,res){
 
     if(req.isAuthenticated()){
         try{
+            let foundUser = await User.find();
             let foundIssue = await Issue.find()
             .populate('user')    // Populate the 'user' field
             .populate('project') // Populate the 'project' field
@@ -16,7 +17,8 @@ module.exports.issues = async function(req,res){
             // console.log(foundIssue);
             return res.render('issuePage',{
                 title:"Issue Page",
-                foundIssue:foundIssue   
+                foundIssue:foundIssue,
+                foundUser:foundUser 
             });
 
         }catch (err) {

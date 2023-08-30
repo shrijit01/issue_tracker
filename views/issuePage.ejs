@@ -1,15 +1,35 @@
 
     
     <!-- <button id="create-issue-button">Create Issue</button> -->
+    <!-- filter options -->
+    <div id="filters">
+        <label for="authorFilter">Filter by Author:</label>
+        <select id="authorFilter">
+            <option value="">Select</option>
+            <%for(user of foundUser){%>
+                <option value="<%= user.name %>"><%= user.name %></option>
+            <%}%>
+        </select>
+        
+        <label for="labelFilter">Filter by Label:</label>
+        <select id="labelFilter">
+            <option value="">All Labels</option>
+            <option value="test label">test label</option>
+            <option value="issue">issue</option>
+            <option value="Bug">Bug</option>
+        </select>
+    </div>
 
     <ul class="issue-list">
         <%foundIssue.forEach(function(issue){%>
                 <li class="issue-item">
                     <h2>Title:- <%= issue.title %></h2>
                     <p>Description:- <%= issue.description %></p>
-                    <p>Label:- <%= issue.label %></p>
-                    <p>Author:- <%= issue.user.name %></p>
+                    <p class="Label"><%= issue.label %></p>
+                    <p class="Author"><%= issue.user.name %></p>
                     Project :- <a href="/projects/project/<%= issue.project.id %>"><%= issue.project.name %></a>
                 </li>
         <%})%>
     </ul>
+
+    <script src="/javascripts/issuePage.js"></script>
