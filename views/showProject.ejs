@@ -20,26 +20,26 @@
     </ul>
 
     <!-- filter options -->
-    <div id="filters">
+    <div style="margin: auto; background-color: rgb(247, 246, 246); width: 98%;" id="filters">
         <label for="authorFilter">Filter by Author:</label>
         <select id="authorFilter">
             <option value="">Select</option>
-            <option value="<%= user.name %>">sp</option>
+            <option value="<%= user.name %>"><%= user.name %></option>
         </select>
         
         <label for="labelFilter">Filter by Label:</label>
         <select id="labelFilter">
             <option value="">All Labels</option>
-            <option value="test label">test label</option>
-            <option value="issue">issue</option>
-            <option value="bug">bug</option>
-            <option value="fix">fix</option>
+            <option value="test label">Test label</option>
+            <option value="issue">Issue</option>
+            <option value="bug">Bug</option>
+            <option value="fix">Fix</option>
         </select>
     </div>
     
     <!-- showing all issue in project  -->
     <ul class="issue-list">
-        <h1>Total Issues <%= issues.length %></h1>
+        <h1 style="text-align: center;">Total Issues <%= issues.length %></h1>
         <% issues.forEach(function(issue){%>
             <li style="background-color: beige;" class="issue-item">
                 <h2 class="Iss-ttl">Title:-<%=issue.title%></h2>
