@@ -3,7 +3,7 @@
     <div class="create-issue-icon">
         <i class="ri-add-line"></i>
     </div>
-
+    <!-- Showing user Info  -->
     <ul class="project-list">
             <li class="project-item">
                     <h2>
@@ -19,19 +19,39 @@
             
     </ul>
 
+    <!-- filter options -->
+    <div id="filters">
+        <label for="authorFilter">Filter by Author:</label>
+        <select id="authorFilter">
+            <option value="">Select</option>
+            <option value="<%= user.name %>">sp</option>
+        </select>
+        
+        <label for="labelFilter">Filter by Label:</label>
+        <select id="labelFilter">
+            <option value="">All Labels</option>
+            <option value="test label">test label</option>
+            <option value="issue">issue</option>
+            <option value="Bug">Bug</option>
+        </select>
+    </div>
+    
     <!-- showing all issue in project  -->
     <ul class="issue-list">
         <h1>Total Issues <%= issues.length %></h1>
-            <% issues.forEach(function(issue){%>
-                <li style="background-color: beige;" class="issue-item">
-                    <h2>Title:- <%= issue.title %></h2>
-                    <p>Description:- <%= issue.description %></p>
-                    <p>Label:- <%= issue.label %></p>
-                </li>
-            <%})%>
-        
-    </ul>  
+        <% issues.forEach(function(issue){%>
+            <li style="background-color: beige;" class="issue-item">
+                <h2 class="Iss-ttl">Title:-<%=issue.title%></h2>
+                <span><b>Description:-</b> <%= issue.description %></span>
+                <br>
+                Label:-<span class="Label"><%= issue.label %></span>
+                <br>
+                Author:-<span class="Author"><%= issue.author %></span>
+            </li>
+        <%})%>
+    </ul> 
 
+    <!-- Issue form Container  -->
     <main id="issueForm-container">
         <div id="close-issue">
             <i class="ri-close-line"></i>
@@ -44,7 +64,12 @@
             <textarea id="issue-description" name="description" rows="4" required></textarea>
 
             <label for="issue-labels">Labels:</label>
-            <input type="text" id="issue-labels" name="label">
+            <select id="issue-labels" name="label">
+                <option value="">All Labels</option>
+                <option value="test">test</option>
+                <option value="issue">Issue</option>
+                <option value="Bug">Bug</option>
+            </select>
 
             <label for="issue-author">Author:</label>
             <input type="text" id="issue-author" name="author" readonly value="<%= user.name %>" required>

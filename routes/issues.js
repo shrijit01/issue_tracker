@@ -4,7 +4,7 @@ const passport = require('passport');
 
 const issuesController = require('../controllers/issue_controller');
 
-router.get('/issue-page',issuesController.issues);
+router.get('/issue-page',passport.checkAuthentication,issuesController.issues);
 
 router.post('/create',passport.checkAuthentication,issuesController.create);
 

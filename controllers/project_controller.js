@@ -3,7 +3,6 @@ const Issue = require('../models/issue');
 const User = require('../models/user');
 
 
-
 module.exports.show = async function (req, res) {
     if (req.isAuthenticated()) {
         try{
@@ -30,6 +29,8 @@ module.exports.show = async function (req, res) {
             console.error(err, 'Error in showing project');
             return res.status(500).json({ message: 'Error in showing project' });
         }
+    }else{
+        return res.status(500).json({ message: 'Error in showing project' });
     }
 }
 

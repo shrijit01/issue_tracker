@@ -1,9 +1,18 @@
 const User = require('../models/user');
+const Project = require('../models/project');
 
-module.exports.profile = function(req,res){
+module.exports.profile = async function(req,res){
     if(req.isAuthenticated()){
+        // console.log(req.body);
+        let user = await User.findById(req.user._id);
+        const projects = await Project.find({
+            author:user._id
+        });
+
         return res.render('profile',{
-            title :"Profile"
+            title :"Profile",
+            user:user,
+            projects:projects
         });
     }
     return res.redirect('/users/sign-in');

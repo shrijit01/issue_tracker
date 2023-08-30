@@ -4,13 +4,12 @@
 
     <ul class="issue-list">
         <%foundIssue.forEach(function(issue){%>
-            <!-- //this is for only logged in user issue  -->
                 <li class="issue-item">
                     <h2>Title:- <%= issue.title %></h2>
                     <p>Description:- <%= issue.description %></p>
                     <p>Label:- <%= issue.label %></p>
                     <p>Author:- <%= issue.user.name %></p>
-                    <p>Project :- <%= issue.project.name %></p>
+                    Project :- <a href="/projects/project/<%= issue.project.id %>"><%= issue.project.name %></a>
                 </li>
         <%})%>
     </ul>

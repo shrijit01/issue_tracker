@@ -3,6 +3,9 @@
     <ul id="ul">
         <%if(locals.user){%>
             <li>
+                <a class="headerlink" href="/">Home</a>
+            </li>
+            <li>
                 <a class="headerlink" href="/issues/issue-page">Issue page</a>
             </li>
             <li>
@@ -13,6 +16,9 @@
             </li>
             
         <%}else{%>
+            <li>
+                <a class="headerlink" href="/">Home</a>
+            </li>
             <li>
                 <a class="headerlink" href="/users/sign-in">Sign In</a>
             </li>
