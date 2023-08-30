@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+/* ISSUE SCHEMA */
 const issueSchema = new mongoose.Schema({
     title:{
         type:String,
