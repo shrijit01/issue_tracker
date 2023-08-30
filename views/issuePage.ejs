@@ -25,8 +25,8 @@
                 <li class="issue-item">
                     <h2>Title:- <%= issue.title %></h2>
                     <p>Description:- <%= issue.description %></p>
-                    <p class="Label"><%= issue.label %></p>
-                    <p class="Author"><%= issue.user.name %></p>
+                    Label:-<span class="Label"><%= issue.label %></span><br>
+                    Author:-<span class="Author"><%= issue.user.name %></span><br>
                     Project :- <a href="/projects/project/<%= issue.project.id %>"><%= issue.project.name %></a>
                 </li>
         <%})%>
